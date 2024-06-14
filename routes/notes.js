@@ -1,6 +1,7 @@
 import express from 'express';
 import { addNote } from '../persistence.js';
 import { removeNote } from '../persistence.js';
+import { updateNote } from '../persistence.js';
 
 const router = express.Router();
 
@@ -20,6 +21,14 @@ router.delete('/:id', (req, res) => {
     const noteId = req.params.id;
     const result = removeNote(noteId);
     res.status(200).send({ message: 'Note deleted successfully' });
+});
+
+router.put('/:id', (req, res) => {
+    const noteId = req.params.id;
+    const { text } = req.body;
+    console.log('Updating note with ID:', noteId);
+    const updatedNote = updateNote(noteId, text);
+    res.status(200).send(updatedNote);
 });
 
 export default router;

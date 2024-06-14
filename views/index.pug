@@ -7,7 +7,7 @@ block content
     ul#notes
       each note in notes
         li
-          div= note.text
+          div.content-editable(data-id=note.id contenteditable="true")= note.text
           button.delete-btn(type="button" data-id=note.id) Delete
           button.edit-btn(type="button" data-id=note.id) Save
 

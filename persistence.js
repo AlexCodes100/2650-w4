@@ -25,5 +25,11 @@ const removeNote = (id) => {
     console.log(_notes);
 };
 
+// Update a note
+const updateNote = (id, newText) => {
+    _notes = _notes.map(note => note.id === id ? { ...note, text: newText } : note);
+    console.log(_notes);
+    return _notes.find(note => note.id === id);
+};
 
-export { notes, addNote, removeNote};
+export { notes, addNote, removeNote, updateNote};
