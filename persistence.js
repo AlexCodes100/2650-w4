@@ -19,5 +19,11 @@ const addNote = (note) => {
   console.log(_notes)
 };
 
+// Remove a note
+const removeNote = (id) => {
+    _notes = _notes.filter(note => note.id !== id);
+    console.log(_notes);
+};
 
-export { notes, addNote};
+
+export { notes, addNote, removeNote};
