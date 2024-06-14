@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid";
+
 let _notes = [
   { id: "2", text: "CPSC 2650" },
   { id: "1", text: "An awesome web dev Note" },
@@ -9,8 +11,13 @@ const notes = () => _notes;
 
 // Add a note
 const addNote = (note) => {
-  _notes.push(note);
+    const newNote = {
+        id: uuidv4(),
+        text: note.text
+    };
+  _notes.push(newNote);
+  console.log(_notes)
 };
 
 
-export { notes, addNote, editNote, removeNote };
+export { notes, addNote};
